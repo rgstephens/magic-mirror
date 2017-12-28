@@ -1,0 +1,26 @@
+{
+  // https://github.com/MichMich/MagicMirror/tree/master/modules/default/newsfeed
+  module: "newsfeed",
+  position: "bottom_bar",
+  config: {
+    maxNewsItems: 4,
+    ignoreOldItems: true,
+    ignoreOlderThan: 604800000, // 7 days
+    feeds: [
+      {
+        title: "Seattle Times",
+        url: "https://www.seattletimes.com/feed/"
+      },
+      {
+        title: "ESPN Golf News",
+        url: "http://sports.espn.go.com/espn/rss/golf/news"
+      },
+      {
+        title: "NY Times",
+        url: "http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml"
+      }
+    ],
+    showSourceTitle: true,
+    showPublishDate: true
+  }
+}

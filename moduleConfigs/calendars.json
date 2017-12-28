@@ -1,0 +1,31 @@
+{
+    module: "calendar",
+    header: "Broadmoor Calendar",
+    position: "top_left",
+    config: {
+      calendars: [
+        { // Broadmoor Dining
+          symbol: "cutlery ",
+          maximumEntries: 4,
+          url: "https://calendar.google.com/calendar/ical/l590gdr0r354jdqs2pln2miic4%40group.calendar.google.com/public/basic.ics"
+        },
+        { // Broadmoor Men's
+          symbol: "male ",
+          url: "https://calendar.google.com/calendar/ical/5a35kj35cn8mae8scdretdamv4%40group.calendar.google.com/public/basic.ics"
+        },
+        { // Broadmoor Course
+          symbol: "flag ",
+          url: "https://calendar.google.com/calendar/ical/5a35kj35cn8mae8scdretdamv4%40group.calendar.google.com/public/basic.ics"
+        },
+        { // Broadmoor Women's
+          symbol: "female ",
+          url: "https://calendar.google.com/calendar/ical/7ljcdj894bc0vk1mcpv82as3e8%40group.calendar.google.com/public/basic.ics"
+        },
+        {
+          symbol: "calendar-check-o ",
+          url: "webcal://www.calendarlabs.com/templates/ical/US-Holidays."
+        }
+      ]
+    }
+  },
+  {

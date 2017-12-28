@@ -65,7 +65,23 @@ node serveronly
 
 You can now browse to http://localhost:8080 to view the site.
 
-#### Broadmoor config.js
+## ToDo
+
+* Center Slider
+  * Today @ Broadmoor Calendar
+  * Upcoming Events
+  * Announcements
+* Remote config/control of MMM
+  * [MMM-Remote-Control](https://github.com/Jopyth/MMM-Remote-Control)
+  * [Telegram based](https://github.com/eouia/MMM-TelegramBot)
+  * [Json Editor](https://github.com/jdorn/json-editor)
+* Voice control of MMM
+  * [Voice Control w/Alexa](https://github.com/joanaz/MMM-MirrorMirrorOnTheWall)
+* Tournament Results & Brackets
+  * [In iframe](https://github.com/alberttwong/MMM-iFrame)
+
+
+## Module Configuration Notes
 
 #### Newsfeeds
 

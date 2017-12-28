@@ -1,0 +1,13 @@
+[Unit]
+Description=MagicMirror
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/MagicMirror
+ExecStart=/root/.nvm/versions/node/v9.3.0/bin/node serveronly
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target

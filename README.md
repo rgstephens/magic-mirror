@@ -1,6 +1,6 @@
 ## Broadmoor MagicMirror
 
-This is the Broadmoor [MagicMirror](https://magicmirror.builders/) project.
+This is the Broadmoor [MagicMirror](https://magicmirror.builders/) project which is housed on Github [here](https://github.com/rgstephens/magic-mirror)
 
 MagicMirror has lot's of add-on modules and you can create your own. The full list is [here](https://github.com/MichMich/MagicMirror/wiki/MagicMirror%C2%B2-Modules).
 
@@ -46,7 +46,6 @@ cd ~/MagicMirror
 While we're at the command line, let's install all of the modules we're going to use for the Broadmoor MagicMirror:
 
 ```
-cp ~/MagicMirror/config/config.js.sample ~/MagicMirror/config/config.js
 cd ~/MagicMirror/modules
 git clone https://github.com/hakanmhmd/MMM-Stock
 git clone https://github.com/barnabycolby/MMM-Carousel
@@ -56,11 +55,12 @@ npm install
 cd ~/MagicMirror
 ```
 
-#### Basic Configuration & Test
+#### Download config.js and run
 
 ```
 cd ~/MagicMirror
-node server
+curl -LJO https://raw.github.com/rgstephens/magic-mirror/master/config.js > ~/MagicMirror/config/config.js
+node serveronly
 ```
 
 You can now browse to http://localhost:8080 to view the site.
@@ -81,3 +81,16 @@ These don't seem too good
 * Golf Digest News:  http://www.golfdigest.com/services/rss/feeds/news.xml (junk)
 
 Site with list of [golf newsfeeds](http://www.linkstimes.com/news_links.php)
+
+## Ubuntu System Startup
+
+To set MagicMirror to startup with the system using systemctl use the magicmirror.service file included in this package and place it at `/lib/systemd/system/magicmirror.service`. Once that is done, execute these commands:
+
+```
+systemctl daemon-reload
+systemctl is-enabled magicmirror
+systemctl enable magicmirror
+sudo systemctl start magicmirror
+systemctl status magicmirror
+journalctl -u magicmirror.service
+```

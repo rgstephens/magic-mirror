@@ -27,6 +27,23 @@ var config = {
 
   modules: [
     {
+      module: "MMM-Carousel",
+      config: {
+        transitionInterval: 6000,
+        ignoreModules: [
+          "alert",
+          "updatenotifications",
+          "clock",
+          "calendar",
+          "currentweather",
+          "newsfeed",
+          "alert",
+          "updatenotifications"
+        ],
+        mode: "global"
+      }
+    },
+    {
       module: "alert"
     },
     {
@@ -42,13 +59,10 @@ var config = {
       header: "Broadmoor Calendar",
       position: "top_left",
       config: {
-        maximumEntries: 12,
-        fetchInterval: 60000,
         timeFormat: "absolute",
-        urgency: 2,
-        fade: false,
-        fadePoint: 1,
         getRelative: 0,
+        urgency: 2,
+        fadePoint: 0.7,
         dateFormat: "ddd, MMM do",
         excludedEvents: ["Breakfast", "Lunch"],
         calendars: [
@@ -58,6 +72,11 @@ var config = {
             maximumEntries: 2,
             url:
               "https://calendar.google.com/calendar/ical/l590gdr0r354jdqs2pln2miic4%40group.calendar.google.com/public/basic.ics"
+          },
+          {
+            symbol: "calendar-check-o ",
+            maximumEntries: 2,
+            url: "webcal://www.calendarlabs.com/templates/ical/US-Holidays.ics"
           },
           {
             // Broadmoor Course
@@ -70,27 +89,8 @@ var config = {
             symbol: "male ",
             url:
               "https://calendar.google.com/calendar/ical/obigr2oehd5p1q61j36jhqd2n0%40group.calendar.google.com/public/basic.ics"
-          },
-          {
-            // Broadmoor Women's
-            symbol: "female ",
-            url:
-              "https://calendar.google.com/calendar/ical/7ljcdj894bc0vk1mcpv82as3e8%40group.calendar.google.com/public/basic.ics"
-          },
-          {
-            symbol: "calendar-check-o ",
-            url: "webcal://www.calendarlabs.com/templates/ical/US-Holidays."
           }
         ]
-      }
-    },
-    { // https://github.com/hakanmhmd/MMM-Stock
-      // https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&outputsize=compact&symbol=.DJI&apikey=IPWULBT54Y3LHJME
-      // https://www.alphavantage.co/documentation/
-      module: "MMM-Stock",
-      position: "bottom_right",
-      config: {
-        companies: ["DJI", "SPX", "IXIC", "AMZN", "MSFT", "GOOG", "AAPL"]
       }
     },
     {
@@ -113,13 +113,46 @@ var config = {
       }
     },
     {
+      // https://github.com/jclarke0000/MMM-MyCommute
+      // AIzaSyDWKGWE3cOhC2EEM6Pn2B5IfU1cG98LjAo
+      module: "MMM-MyCommute",
+      position: "top_right",
+      header: "Traffic",
+      classes: "default everyone",
+      config: {
+        apikey: "AIzaSyDWKGWE3cOhC2EEM6Pn2B5IfU1cG98LjAo",
+        origin: "2340 Broadmoor Dr E, Seattle, WA 98112",
+        destinations: [
+          {
+            destination: "Pike Place Market, Seattle, WA",
+            label: "Pike Place"
+          },
+          {
+            destination: "575 Bellevue Square, Bellevue, WA 98004",
+            label: "Bellevue"
+          },
+          {
+            destination: "SeaTac, WA 98158",
+            label: "SeaTac"
+          }
+        ]
+      }
+    },
+    {
       module: "newsfeed",
       position: "bottom_bar",
       config: {
+        maxNewsItems: 4,
+        ignoreOldItems: true,
+        ignoreOlderThan: 604800000, // 7 days
         feeds: [
           {
             title: "Seattle Times",
             url: "https://www.seattletimes.com/feed/"
+          },
+          {
+            title: "ESPN Golf News",
+            url: "http://sports.espn.go.com/espn/rss/golf/news"
           }
         ],
         showSourceTitle: true,
